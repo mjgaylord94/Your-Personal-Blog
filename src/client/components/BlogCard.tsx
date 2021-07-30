@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const BlogCard = ({ blog }) => {
+const BlogCard = ({ blog }: {blog: any}) => {
     return (
         <>
             <li className="list-group-item">
