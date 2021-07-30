@@ -9,14 +9,14 @@ const Edit = () => {
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
 
-    const getChirp = async () => {
+    const getBlog = async () => {
         let r = await fetch(`/api/blogs/${id}`);
         let blog = await r.json();
         setTitle(blog.title);
         setContent(blog.content)
     }
 
-    useEffect(() => {getChirp();}, [])
+    useEffect(() => {getBlog();}, [])
 
     async function submit(e: { preventDefault: () => void; }) {
         e.preventDefault();
@@ -43,8 +43,7 @@ const Edit = () => {
             headers: {'Content-type': 'application/json'},
         });
 
-        history.goBack()
-        history.goBack()
+        history.push('/')
     }
 
     return (

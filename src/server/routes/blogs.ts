@@ -53,7 +53,7 @@ router.delete('/:id', async (req, res) => {
     let id: string = req.params.id
 
     try {
-        res.json(await db.blogtags.remove(id));
+        await db.blogtags.remove(id);
         res.json(await db.blogs.remove(id));
     } catch(e) {
         console.log(e);
