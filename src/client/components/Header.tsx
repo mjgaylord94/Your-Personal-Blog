@@ -12,8 +12,12 @@ const Header = () => {
                 </h1>
                 <div className="col-md-3"></div>
                 <div id="link-container" className="row d-flex justify-content-center">
-                    <Link to={'/'} id="home-button" className="btn btn-dark col-md-4 m-2">Home</Link>
-                    <Link to={'/new'} id="new-button" className="btn btn-dark col-md-4 m-2">New Post</Link>
+                    <Link to={'/'} id="home-button" className="btn btn-primary col-md-3 m-2">
+                        Home
+                    </Link>
+                    <Link to={'/new'} id="new-button" className="btn btn-primary col-md-3 m-2">
+                        New Post
+                    </Link>
                 </div>
             </div>
         </>

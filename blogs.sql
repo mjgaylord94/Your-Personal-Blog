@@ -25,8 +25,9 @@ create table tags (
 );
 
 create table blogtags (
-	blogid int not null primary key,
+	blogid int not null,
     tagid int not null,
+    primary key (blogid, tagid),
     foreign key (blogid) references blogs(id),
     foreign key (tagid) references tags(id)
 );
@@ -40,7 +41,8 @@ SELECT
 	b.blogid,
 	t.name
 	FROM blogtags b
-	JOIN tags t on b.tagid = t.id;
+	JOIN tags t on b.tagid = t.id
+    WHERE b.blogid = blogid;
 END//
 
 DELIMITER ;

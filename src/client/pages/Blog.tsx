@@ -23,14 +23,7 @@ const Blog: React.FC<IBlog> = () => {
     const getTag = async () => {
         let r = await fetch(`/api/blogtags/${id}`);
         let tags = await r.json();
-
-        for (let i = 0; i < tags.length; i++) {
-            if (tags[i].blogid) {
-                if (tags[i].blogid == id) {
-                    setTag(tags[i].name)
-                }
-            }
-        }
+        setTag(tags[0][0].name)
     }
 
     useEffect(() => { getBlog(); getTag(); }, [])

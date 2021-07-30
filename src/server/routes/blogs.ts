@@ -28,7 +28,9 @@ router.post('/', async (req, res) => {
     let blogObj: blog = req.body
 
     try {
-        res.json(await db.blogs.add(blogObj.title, blogObj.content, blogObj.authorid));
+        const newBlog = await db.blogs.add(blogObj.title, blogObj.content, blogObj.authorid);
+
+        await db.blogtags.add(newBlog.insertId, blogObj.tagid)
     } catch(e) {
         console.log(e);
         res.sendStatus(500);
@@ -51,6 +53,7 @@ router.delete('/:id', async (req, res) => {
     let id: string = req.params.id
 
     try {
+        res.json(await db.blogtags.remove(id));
         res.json(await db.blogs.remove(id));
     } catch(e) {
         console.log(e);
@@ -59,10 +62,10 @@ router.delete('/:id', async (req, res) => {
 })
 
 interface blog {
-    id?: string,
     title: string,
     content: string,
-    authorid: string
+    authorid: string,
+    tagid: string
 }
 
 export default router;

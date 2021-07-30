@@ -63,7 +63,7 @@ const Edit = () => {
                                 <button id="delete-button" className="btn btn-danger m-2" onClick={remove}>
                                     Delete Post
                                 </button>
-                                <button id="submit-button" className="btn m-2" onClick={submit}>
+                                <button id="submit-button" className="btn btn-dark m-2" onClick={submit}>
                                     Submit
                                 </button>
                             </form>
